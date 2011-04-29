@@ -1,0 +1,46 @@
+/*
+
+	Quickie CSS styles for Geo tryout
+
+*/
+
+html.js .nojs{
+	display: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clearboth {
+	clear: both;
+}
+
+#cloudaddress {
+	position: relative;
+	width: 320px;
+	height: 300px;
+  margin-top: 15px;
+}
+
+.ynbs_formtable {
+  width: 570px !important;
+  float: left;
+}
+
+.submit-form {
+  text-align: right;
+  width: 560px;
+}
+
+#concert_soldout {
+  border: none !important;
+}
+
+#concertform {
+  width: 900px
+}
