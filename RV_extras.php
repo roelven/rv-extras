@@ -58,7 +58,7 @@ remove_action('wp_head',        'adjacent_posts_rel_link');
 // Disable widgets (removes template option + menu page widgets)
 remove_action('plugins_loaded', 'wp_maybe_load_widgets', 0);
 
-add_action('show_admin_bar' ,   'rv_remove_admin_bar');
+add_action('show_admin_bar',    false);
 add_action('wp_print_scripts',  'rv_deregister_javascript', 100);
 
 add_filter('wp_headers',        'rv_remove_x_pingback');

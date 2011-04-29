@@ -115,12 +115,6 @@ function rv_rewrite_newsletter() {
   add_rewrite_rule('newsletter/([^/]+)/?$', 'index.php?pagename=newsletter&rv_urlvar=$matches[1]','top');
 }
 
-// Call this function as an action to remove the new Wordpress Admin bar
-// Credit http://designwoop.com/2011/03/how-to-remove-the-wordpress-admin-bar/
-function rv_remove_admin_bar() {
-  return false;
-}
-
 // Check if a result is odd, to use in zebra design lists.
 function rv_is_odd($number) {
    return $number & 1; // 0 = even, 1 = odd
