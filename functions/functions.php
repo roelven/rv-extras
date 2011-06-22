@@ -29,12 +29,17 @@ function rv_disable_widgets($sidebars_widgets) {
   return $sidebars_widgets;
 }
 
-// Get body of a specific page
-function rv_getPage($pageID){
+// Get body of a specific page, optional: get excerpt in stead of page_content
+function rv_getPage($pageID, $excerpt = false){
   // Put page id in variable, otherwise wordpress chokes
   $page_data = get_page($pageID);
-  // Apply content filters to keep page markup
-  $content = apply_filters('the_content', $page_data->post_content);
+  if ($excerpt) {
+    // Apply content filters to keep page markup
+    $content = apply_filters('the_content', $page_data->post_excerpt);
+  } else {
+    // Apply content filters to keep page markup
+    $content = apply_filters('the_content', $page_data->post_content);
+  }
   return $content;
 }
 
@@ -51,7 +56,7 @@ function rv_body_id() {
 // A generic function to cut off a sentence and add '...'.
 function rv_wordCut($text, $limit, $end) {
   if (strlen($text) > $limit) {
-    $text = strip_tags($text);
+    // $text = strip_tags($text);
     $txt1 = wordwrap($text, $limit, '[cut]');
     $txt2 = explode('[cut]', $txt1);
     $ourTxt = $txt2[0];
@@ -118,6 +123,22 @@ function rv_rewrite_newsletter() {
 // Check if a result is odd, to use in zebra design lists.
 function rv_is_odd($number) {
    return $number & 1; // 0 = even, 1 = odd
+}
+
+// Have a better and more flexible next / previous navigation for use in the Loop:
+function rv_customnav($current) {
+	$prevURL = get_permalink(get_previous_post(true)->ID);
+	$nextURL = get_permalink(get_next_post(true)->ID);
+	$output = '';
+	// Print previous link if available
+	if ($current != $prevURL) {
+		$output .= '<a href="'.$prevURL.'" title="'.__('Previous Post', 'ynbs_rammstein').'" class="btn_previous btn left" hidefocus="hidefocus"><span><span><u class="ds">'.__('Previous Post', 'ynbs_rammstein').'</u></span></span></a>'."\n";
+	}
+	// Print next link if available
+	if ($current != $nextURL) {
+		$output .= '<a href="'.$nextURL.'" title="'.__('Next Post', 'ynbs_rammstein').'" class="btn_next btn right" hidefocus="hidefocus"><span><span><u class="ds">'.__('Next Post', 'ynbs_rammstein').'</u></span></span></a>';
+	}
+	return $output;
 }
 
 // Create a valid date
