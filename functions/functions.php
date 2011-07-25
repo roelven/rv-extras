@@ -126,17 +126,19 @@ function rv_is_odd($number) {
 }
 
 // Have a better and more flexible next / previous navigation for use in the Loop:
+// use print rv_customnav(get_permalink()) within the loop
+// WARNING: this is looking only for posts within the same category!
 function rv_customnav($current) {
 	$prevURL = get_permalink(get_previous_post(true)->ID);
 	$nextURL = get_permalink(get_next_post(true)->ID);
 	$output = '';
 	// Print previous link if available
 	if ($current != $prevURL) {
-		$output .= '<a href="'.$prevURL.'" title="'.__('Previous Post', 'ynbs_rammstein').'" class="btn_previous btn left" hidefocus="hidefocus"><span><span><u class="ds">'.__('Previous Post', 'ynbs_rammstein').'</u></span></span></a>'."\n";
+		$output .= '<a href="'.$prevURL.'" title="'.__('zurück', 'rv_theme').'" class="btn_previous" hidefocus="hidefocus">'.__('zurück', 'rv_theme').'</a>'."\n";
 	}
 	// Print next link if available
 	if ($current != $nextURL) {
-		$output .= '<a href="'.$nextURL.'" title="'.__('Next Post', 'ynbs_rammstein').'" class="btn_next btn right" hidefocus="hidefocus"><span><span><u class="ds">'.__('Next Post', 'ynbs_rammstein').'</u></span></span></a>';
+		$output .= '<a href="'.$nextURL.'" title="'.__('nächste', 'rv_theme').'" class="btn_next" hidefocus="hidefocus">'.__('nächste', 'rv_theme').'</a>';
 	}
 	return $output;
 }
