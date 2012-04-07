@@ -21,7 +21,7 @@ if (basename($_SERVER['PHP_SELF']) == basename (__FILE__)) {
 }
 
 // Include function library
-include_once(WP_PLUGIN_DIR.'/RV_extras/functions/functions.php');
+include_once(WP_PLUGIN_DIR.'/rv_extras/functions/functions.php');
 
 // Only run on wp-admin pages:
 if(is_admin()) {

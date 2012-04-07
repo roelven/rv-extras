@@ -220,7 +220,7 @@ function rv_mysql_table_exists($table_name) {
 }
 
 // Get attachment custom function
-function getAttachment($ID) {
+function rv_getAttachment($ID) {
   $args = array(
     'post_type' => 'attachment',
     'numberposts' => -1,
