@@ -41,6 +41,10 @@ if(is_admin()) {
 add_action('http_request_args', 'rv_dontupdate_check_plugin', 5, 2);
 add_filter('http_request_args', 'rv_dontupdate_check_theme', 5, 2);
 
+// Remove themes from update warning:
+remove_action('load-update-core.php', 'wp_update_themes');
+add_filter('pre_site_transient_update_themes', create_function('$a', "return null;" ));
+
 // Add support for $_GET like URI variables: (use /newsletter/yourvariable)
   //add_action('init', 'rv_rewrite_newsletter');
   //add_filter('query_vars', 'rv_newsletter_var');
