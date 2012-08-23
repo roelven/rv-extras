@@ -279,7 +279,7 @@ function rv_plugin_activate() {
 
 // Get custom styles in plugin on admin
 function rv_register_style() {
-  wp_register_style('rv_styles', WP_PLUGIN_URL . '/RV_extras/css/style.css');
+  wp_register_style('rv_styles', WP_PLUGIN_URL . '/rv-extras/css/style.css');
   wp_enqueue_style('rv_styles');
 }
 

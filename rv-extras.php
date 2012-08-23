@@ -4,7 +4,7 @@
   Plugin Name:    Roelvens' Extras
   Plugin URI:     http://roelvanderven.com
   Description:    Provides additional functionality, security, debug options and settings.
-  Version:        0.9.2
+  Version:        0.9.3
   Author:         Roel van der Ven
   Author URI:     http://roelvanderven.com
 
@@ -21,7 +21,7 @@ if (basename($_SERVER['PHP_SELF']) == basename (__FILE__)) {
 }
 
 // Include function library
-include_once(WP_PLUGIN_DIR.'/rv_extras/functions/functions.php');
+include_once(WP_PLUGIN_DIR.'/rv-extras/functions/functions.php');
 
 // Only run on wp-admin pages:
 if(is_admin()) {
@@ -76,5 +76,5 @@ add_filter('sidebars_widgets',  'rv_disable_widgets');
 
 // Add query info to theme footer (disable on production)
 add_action('wp_footer',         'rv_debuginfo', 1);
-add_action('wp_footer',           'rv_head', 1);
+add_action('wp_footer',         'rv_head', 1);
 ?>
