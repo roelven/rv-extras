@@ -27,11 +27,11 @@ include_once(WP_PLUGIN_DIR.'/rv-extras/functions/functions.php');
 if(is_admin()) {
   add_action('admin_init', 'rv_register_style');
   add_action('admin_init', 'rv_rewrite_flush');
-    
+
   // Add field 'attachment ID' at uploads for extra reference.
   remove_action('attachment_fields_to_edit', 'image_attachment_fields_to_edit', 10, 2);
   add_action('attachment_fields_to_edit', 'rv_image_attachment_fields_to_edit', 10, 2);
-  
+
   // Admin footer credits
   remove_action('admin_footer_text', 10, 1);
   add_action('admin_footer_text', 'rv_print_admin_footer');
@@ -77,4 +77,3 @@ add_filter('sidebars_widgets',  'rv_disable_widgets');
 // Add query info to theme footer (disable on production)
 add_action('wp_footer',         'rv_debuginfo', 1);
 add_action('wp_footer',         'rv_head', 1);
-?>
