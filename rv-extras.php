@@ -60,9 +60,9 @@ remove_action('wp_head',        'index_rel_link');
 remove_action('wp_head',        'adjacent_posts_rel_link');
 
 // Disable widgets (removes template option + menu page widgets)
-// remove_action('plugins_loaded', 'wp_maybe_load_widgets', 0);
+remove_action('plugins_loaded', 'wp_maybe_load_widgets', 0);
 
-add_action('show_admin_bar',    false);
+show_admin_bar(false);
 add_action('wp_print_scripts',  'rv_deregister_javascript', 100);
 
 add_filter('wp_headers',        'rv_remove_x_pingback');
@@ -75,5 +75,5 @@ add_filter('sidebars_widgets',  'rv_disable_widgets');
   //add_filter('flash_uploader', create_function('$a', "return null;"), 1);
 
 // Add query info to theme footer (disable on production)
-add_action('wp_footer',         'rv_debuginfo', 1);
-add_action('wp_footer',         'rv_head', 1);
+// add_action('wp_footer',         'rv_debuginfo', 1);
+// add_action('wp_footer',         'rv_head', 1);
