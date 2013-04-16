@@ -178,6 +178,17 @@ function rv_translatethis($content) {
   }
 }
 
+// print this anywhere to get more info in this filter
+function rv_print_filters_for( $hook = '' ) {
+  global $wp_filter;
+  if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
+    return;
+
+  print '<pre>';
+  print_r( $wp_filter[$hook] );
+  print '</pre>';
+}
+
 // Remove this plugin from the Wordpress automatic update check:
 function rv_dontupdate_check_plugin($r, $url) {
   if (0 !== strpos($url, 'http://api.wordpress.org/plugins/update-check'))
